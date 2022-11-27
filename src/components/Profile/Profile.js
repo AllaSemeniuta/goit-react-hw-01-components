@@ -1,4 +1,6 @@
-import { Box } from 'components/Box.js/Box';
+import PropTypes from 'prop-types';
+
+import { Box } from 'components/Box/Box';
 import {
   Avatar,
   StatsWrapper,
@@ -19,6 +21,7 @@ export const Profile = ({
       borderRadius="normal"
       width="320px"
       fontFamily="Montserrat"
+      overflow="hidden"
     >
       <Box
         display="flex"
@@ -30,7 +33,7 @@ export const Profile = ({
       >
         <Avatar src={avatar} alt="User avatar" />
         <Title>{username}</Title>
-        <Tag>{tag}</Tag>
+        <Tag>@{tag}</Tag>
         <Location>{location}</Location>
       </Box>
 
@@ -42,15 +45,13 @@ export const Profile = ({
         borderTop="normal"
         backgroundColor="#FFFAF0"
         borderColor="#C0C0C0"
+        overflow="hidden"
       >
         <StatsWrapper>
           <StatsName>Followers</StatsName>
           <Stats>{stats.followers}</Stats>
         </StatsWrapper>
-        <StatsWrapper
-          borderLeft="1px solid #C0C0C0"
-          borderRight="1px solid #C0C0C0"
-        >
+        <StatsWrapper>
           <StatsName>Views</StatsName>
           <Stats>{stats.views}</Stats>
         </StatsWrapper>
@@ -61,4 +62,18 @@ export const Profile = ({
       </Box>
     </Box>
   );
+};
+
+Profile.propTypes = {
+  user: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    tag: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
+    avatar: PropTypes.string.isRequired,
+    stats: PropTypes.shape({
+      followers: PropTypes.number.isRequired,
+      views: PropTypes.number.isRequired,
+      likes: PropTypes.number.isRequired,
+    }),
+  }).isRequired,
 };

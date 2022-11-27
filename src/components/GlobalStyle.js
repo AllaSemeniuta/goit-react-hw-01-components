@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   body {
-  margin: 0;
+  margin: 0 auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -27,15 +27,13 @@ h6 {
 ul {
   margin: 0;
   padding-left: 0;
+  list-style: none;
 }
 
 button {
   cursor: pointer;
 }
 
-body {
-  font-family: var(--main-font);
-}
 
 a {
   color: currentColor;

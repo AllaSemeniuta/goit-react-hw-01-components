@@ -25,8 +25,9 @@ export const StatsWrapper = styled.li`
   flex-direction: column;
   flex-basis: 33%;
   padding: 14px 0;
-  border-left: ${props => props.borderLeft};
-  border-right: ${props => props.borderRight};
+  &:not(:last-child) {
+    border-right: 1px solid #c0c0c0;
+  }
 `;
 export const StatsName = styled.p`
   color: #a9a9a9;
